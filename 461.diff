@@ -1,0 +1,13 @@
+diff --git a/kubeflow/tf-job/prototypes/tf-cnn-benchmarks.jsonnet b/kubeflow/tf-job/prototypes/tf-cnn-benchmarks.jsonnet
+index b4a8a021..8473682a 100644
+--- a/kubeflow/tf-job/prototypes/tf-cnn-benchmarks.jsonnet
++++ b/kubeflow/tf-job/prototypes/tf-cnn-benchmarks.jsonnet
+@@ -94,7 +94,7 @@ local job =
+     if numPs < 1 then
+       error "num_ps must be >= 1"
+     else
+-      tfJob.parts.tfJob(name, namespace, replicas) + {
++      tfJob.parts.tfJob(name, namespace, replicas, null) + {
+         spec+: {
+           tfImage: image,
+           terminationPolicy: { chief: { replicaName: "WORKER", replicaIndex: 0 } },
